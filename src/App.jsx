@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Settings from "./pages/Settings";
-import Logs from "./pages/Logs";
-import Logout from "./pages/Logout";
-import MainLayout from "./components/MainLayout";
+// import Dashboard from "./pages/Dashboard";
+// import Settings from "./pages/Settings";
+// import Logs from "./pages/Logs";
+// import Logout from "./pages/Logout";
+import MainLayout from "./Layout/mainLayout";
 
 const App = () => {
   return (
     <Router>
       <MainLayout>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/logs" element={<Logs />} />
           <Route path="/logout" element={<Logout />} />
-        </Routes>
+        </Routes> */}
       </MainLayout>
     </Router>
   );
