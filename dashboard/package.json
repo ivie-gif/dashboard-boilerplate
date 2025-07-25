@@ -1,10 +1,10 @@
 {
   "name": "dashboard-boilerplate",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
+  "private": false,
+  "version": "1.0.3",
+  "type": "commonjs",
   "bin": {
-    "create-my-dashboard": "./index.js"
+    "dashboard-boilerplate": "./index.cjs"
   },
   "scripts": {
     "dev": "vite",
