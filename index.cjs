@@ -1,27 +1,31 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
+const degit = require('degit');
 
-const targetDir = 'my-dashboard';
-const templateDir = path.join(__dirname, 'template');
+const targetDir = 'my-dashboard'; // or take as process.argv[2] later
+const repo = 'https://github.com/ivie-gif/dashboard-boilerplate.git'; // Replace with your GitHub repo
 
-try {
-  console.log('📦 Scaffolding your dashboard...');
+(async () => {
+  try {
+    console.log('📦 Cloning dashboard boilerplate from GitHub...');
 
-  if (fs.existsSync(targetDir)) {
-    console.error(`❌ Folder "${targetDir}" already exists.`);
+    const emitter = degit(repo, {
+      cache: false,
+      force: true,
+      verbose: true
+    });
+
+    await emitter.clone(targetDir);
+
+    console.log('\n✅ Dashboard created in:', targetDir);
+    console.log('👉 Next steps:');
+    console.log(`   cd ${targetDir}`);
+    console.log('   npm install');
+    console.log('   npm run dev');
+  } catch (err) {
+    console.error('❌ Error:', err.message);
     process.exit(1);
   }
-
-  fs.cpSync(templateDir, targetDir, { recursive: true });
-
-  console.log('\n✅ Dashboard created in:', targetDir);
-  console.log('👉 Next steps:');
-  console.log(`   cd ${targetDir}`);
-  console.log('   npm install');
-  console.log('   npm run dev');
-} catch (err) {
-  console.error('\n❌ Error:', err.message);
-  process.exit(1);
-}
+})();
