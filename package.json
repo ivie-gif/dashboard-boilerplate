@@ -1,7 +1,7 @@
 {
   "name": "dashboard-boilerplate",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "commonjs",
   "bin": {
     "dashboard-boilerplate": "./index.cjs"
